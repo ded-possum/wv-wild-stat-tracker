@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from "react";
 import { PlayerContext } from "./PlayerProvider";
 import { PlayerCard } from "./PlayerCard";
+import "./Player.css"
 
 export const PlayerList = () => {
 
@@ -12,7 +13,7 @@ export const PlayerList = () => {
 
     return (
         <>
-        <h2 className="list__header">West Virginia Wild</h2>
+        <h2 className="intro">West Virginia Wild</h2>
         <div className="players">
             {
                 players.map(player => {

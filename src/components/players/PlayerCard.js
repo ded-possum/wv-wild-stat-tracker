@@ -5,6 +5,7 @@ import "./Player.css"
 export const PlayerCard = ({ player }) => (
     <section className="player">
         <h2 className="player__name">{ player.name }</h2>
+        <img className="player__img" src={ player.img }></img>
         <h3 className="player__num">#{ player.number }</h3>
         <h3 className="player__pos">Position: { player.pos }</h3>
         <div className="player__goals">Goals: { player.goal }</div>

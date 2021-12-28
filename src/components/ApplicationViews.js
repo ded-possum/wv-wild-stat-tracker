@@ -5,7 +5,6 @@ import { Login } from "./auth/Login";
 import { Home } from "./Home";
 import { PlayerList } from "./players/PlayerList";
 import { PlayerProvider } from "./players/PlayerProvider";
-import { PlayerCard } from "./players/PlayerCard";
 
 
 export const ApplicationViews = () => {
