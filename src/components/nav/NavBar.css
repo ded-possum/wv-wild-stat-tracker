@@ -1,18 +1,4 @@
-.navbar {
+nav {
     display: flex;
-    flex-flow: nowrap;
-    justify-content: space-around;
-}
-
-.nav-item {
-    display: flex;
-    flex-flow: row;
     justify-content: space-between;
-    flex-basis: 20%;
-}
-
-.nav-pills {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
 }
