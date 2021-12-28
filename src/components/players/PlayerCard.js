@@ -1,6 +1,6 @@
 import React from "react"
 import "./Player.css"
-
+import { Card, CardHeader, CardBody, CardFooter, Button } from "grommet"
 
 export const PlayerCard = ({ player }) => (
     <section className="player">
@@ -14,4 +14,3 @@ export const PlayerCard = ({ player }) => (
         <div className="player__goalAgainst">Goals Against: { player.against }</div>
         <div className="player__penalties">Penalties in Minutes: { player.penalty }</div>
     </section>
-)
