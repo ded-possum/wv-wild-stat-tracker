@@ -1,34 +1,18 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import { Nav, Anchor, Image } from "grommet"
+import { Sort, Analytics, Logout, Compliance, Home } from "grommet-icons"
 import "./NavBar.css"
-
-
-
 
 export const NavBar =() => {
         return (
-            <nav className="navbar">
-                <ul className="nav-pills">
-                <li className="nav-item">
-                        <Link className="nav-link" to="/"><img src="/images/wildlogo_ht100px.png" alt="WV Wild" /></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/player_stats">Player Stats</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/team_stats">Team Stats</Link>
-                    </li>
-                </ul>
-                <span className="navbar-text">
-                    <ul className="nav-pills">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Log in</Link>
-                        </li>
-                    </ul>
-                </span>
-            </nav>
-        )
-    }
+
+<Nav direction="row" background="" pad="">
+    <Image src="/images/wildlogo_ht100px.png" />
+    <Anchor href="/" icon={<Home />} hoverIndicator />
+    <Anchor href="/player_stats" icon={<Sort />} hoverIndicator />
+    <Anchor href="/team_stats" icon={<Analytics />} hoverIndicator />
+    <Anchor href="/login" icon={<Logout />} hoverIndicator />
+    <Anchor href="/register" icon={<Compliance />} hoverIndicator />
+</Nav>
+)}

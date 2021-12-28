@@ -7,7 +7,7 @@ import { Grommet } from 'grommet';
 
 
 ReactDOM.render(
-  <React.StrictMode>\
+  <React.StrictMode>
     <Grommet>
     <Router>
     <Tracker />
