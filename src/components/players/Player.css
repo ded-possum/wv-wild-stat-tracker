@@ -7,7 +7,24 @@
 .player {
     flex-basis: 10%;
     margin: 1em;
-    padding: 2em;
-    border: 1px solid blue;
+    padding: 1em;
 
+
+}
+
+.player__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.player__stats {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1em;
+    font-weight: bold;
 }

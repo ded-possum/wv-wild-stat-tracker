@@ -1,9 +1,19 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import "./Player.css"
 import { Button, Layer, Box } from "grommet"
-
+import { useNavigate } from "react-router-dom";
+import { PlayerContext } from "./PlayerProvider";
 
 export const PlayerCard = ({player}) => {
+  const { deletePlayer } = useContext(PlayerContext)
+
+  const handleDeletePlayer = () => {
+      deletePlayer(player.id)
+      .then(() => {
+        navigate("/players/")
+      })
+    }
+
     const [show, setShow] = useState();
 
     let position = ""
@@ -19,12 +29,7 @@ export const PlayerCard = ({player}) => {
       }
       else {position = ""}
 
-    // function position() {
-    //   player.posF === true ? "Forward" : ""
-    //   player.posD === true ? "Defenseman" : ""
-    //   player.posG === true ? "Goaltender" : ""
-    //   : ""
-    // }
+      const navigate = useNavigate()
 
     return (
         <div className="player">
@@ -34,19 +39,36 @@ export const PlayerCard = ({player}) => {
           <Layer 
             onEsc={() => setShow(false)}
             onClickOutside={() => setShow(false)}>
-        <img className="player__img" src={ player.img } alt="WV Wild"></img>
-        <h3 className="player__name">{ player.name }</h3>
-        <h3 className="player__num">#{ player.number }</h3>
-        <h3 className="player__pos">{ position }</h3>
+        <div className="player__content">
 
-        {((player.posF === true)||(player.posD === true)) && <div><div className="player__goals">Goals: { player.goal }</div>
-        <div className="player__assists">Assists: { player.assist }</div></div>}
+        <img className="player__img" src={ player.img } alt="WV Wild"></img>
+
+        <div className="player__info">
+        <div className="player__name">{ player.name }</div>
+        <div className="player__num">#{ player.number }</div>
+        <div className="player__pos">{ position }</div>
+        </div>
+
+        <div className="player__stats">
+        {((player.posF === true)||(player.posD === true)) && <>
+        <div className="player__goals">Goals: { player.goal }</div>
+        <div className="player__assists">Assists: { player.assist }</div>
+        </>}
         
-        {(player.posG === true) && <div><div className="player__saves">Saves: { player.save }</div>
-        <div className="player__goalAgainst">Goals Against: { player.against }</div></div>}
+        {(player.posG === true) && <>
+        <div className="player__saves">Saves: { player.save }</div>
+        <div className="player__goalAgainst">Goals Against: { player.against }</div>
+        </>}
 
         <div className="player__penalties">Penalty Minutes: { player.penalty }</div>
-            <Button color="#041e42" label="close" onClick={() => setShow(false)} />
+        </div>
+        </div>
+
+            <Button color="#041e42" label="EDIT" onClick={() => {
+              navigate(`/players/edit/${player.id}`)
+            }} />
+            <Button color="#041e42" label="DELETE" onClick={handleDeletePlayer} />
+            <Button color="#041e42" label="CLOSE" onClick={() => setShow(false)} />
           </Layer>
         )}
       </Box>

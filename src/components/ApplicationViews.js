@@ -5,6 +5,7 @@ import { Login } from "./auth/Login";
 import { Home } from "./Home";
 import { PlayerList } from "./players/PlayerList";
 import { PlayerProvider } from "./players/PlayerProvider";
+import { PlayerForm } from "./players/PlayerForm";
 
 
 export const ApplicationViews = () => {
@@ -15,7 +16,8 @@ export const ApplicationViews = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/player_stats/*" element={<PlayerList />} />
+            <Route path="/players/*" element={<PlayerList />} />
+            <Route path="/players/edit/:playerId/*" element={<PlayerForm />} />
         </Routes>
         </PlayerProvider>
     )}
