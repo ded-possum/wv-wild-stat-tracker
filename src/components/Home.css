@@ -1,4 +1,16 @@
+body {
+    color: #FFFFFF;
+}
+
 .intro {
     display: flex;
     justify-content: center;
+}
+.logo {}
+
+.logo_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
 }

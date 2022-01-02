@@ -19,7 +19,7 @@ export const PlayerProvider = (props) => {
             },
             body: JSON.stringify(playerObj)
         })
-        .then(getPlayers)
+        .then(res => res.json())
     }
 
     const getPlayerById = (id) => {

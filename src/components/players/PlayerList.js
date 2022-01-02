@@ -17,10 +17,11 @@ export const PlayerList = () => {
     return (
         <>
         <h2 className="intro">West Virginia Wild</h2>
+        <img className="logo_img" src="images/wildlogosmall.png" alt="WV Wild"></img>
         <div className="intro">
-        <Button color="#041e42" label="ADD NEW PLAYER" onClick={() => {
+        <Button color="#ffb81c" label="ADD NEW PLAYER" onClick={() => {
               navigate(`/players/edit/create`)
-            }} />
+            }} primary />
         </div>
         <div className="players">
             {
@@ -31,5 +32,4 @@ export const PlayerList = () => {
         </div>
         </>
     )
-
 }

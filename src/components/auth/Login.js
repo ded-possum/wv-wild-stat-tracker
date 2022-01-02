@@ -10,16 +10,16 @@ export const Login = (props) => {
     const existDialog = useRef()
     const navigate = useNavigate()
 
-    const existingUserCheck = () => {
+    const existingCoachCheck = () => {
         return fetch(`http://localhost:8088/coaches?email=${email.current.value}`)
             .then(res => res.json())
-            .then(user => user.length ? user[0] : false)
+            .then(coach => coach.length ? coach[0] : false)
     }
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        existingUserCheck()
+        existingCoachCheck()
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("wild_coach", JSON.stringify(exists))

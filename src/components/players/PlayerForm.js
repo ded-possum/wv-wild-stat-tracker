@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { PlayerContext } from "./PlayerProvider"
 import "./Player.css"
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Form, FormField, Layer } from "grommet";
+import { Box, Button, Card, Form, FormField, Layer } from "grommet";
 
 export const PlayerForm = () => {
     const { getPlayers, postPlayer, getPlayerById, updatePlayer } = useContext(PlayerContext)
@@ -21,12 +21,10 @@ export const PlayerForm = () => {
     }
 
     const handleSavePlayer = () => {
-      if (parseInt(player.id) === 0) {
-          window.alert("")
-      } else {
+
         setIsLoading(true);
         if (playerId){
-          //PUT - update
+
           updatePlayer({
               id: parseInt(player.id),
               name: player.name,
@@ -45,20 +43,21 @@ export const PlayerForm = () => {
         } else {
           //POST - add
           postPlayer({
+              id: player.id,
             name: player.name,
             number: +player.number,
-            img: player.img,
-            posF: JSON.parse(player.posF),
-            posD: JSON.parse(player.posD),
-            posG: JSON.parse(player.posG),
+            img: "/images/wvwildjersey_ht100px.png",
+            posF: false || true,
+            posD: false || true,
+            posG: false || true,
             goal: +player.goal,
-            assist: +player.assist,
-            save: +player.save,
-            against: +player.against,
-            penalty: +player.penalty
+              assist: +player.assist,
+              save: +player.save,
+              against: +player.against,
+              penalty: +player.penalty
         })
+        .then(() => navigate(`/players/${player.id}`))
         }
-      }
     }
 
     useEffect(() => {
@@ -76,41 +75,50 @@ export const PlayerForm = () => {
         )
     }, [])
 
+
+    
     return (
   
-      <Form className="player_form">
+      <div className="player_form">
 
-
+        <>
+        <Card  background="#041e42" width="medium" align="center" alignSelf="center">
         <fieldset>
               <div className="form_group">
+              <label>Name:</label>
                   <input type="text" id="name" onChange={handleControlledInputChange} className="form_control" placeholder="Player's Name" defaultValue={player.name}/>
               </div>
         </fieldset>
         <fieldset>
               <div className="form_group">
+              <label>#:</label>
                   <input type="text" id="number" onChange={handleControlledInputChange} className="form_control" placeholder="Player's Number" defaultValue={player.number}/>
               </div>
         </fieldset>
         <fieldset>
               <div className="form_group">
               <label>Forward:</label>
-                  <input type="checkbox" id="posF" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posF}/>
+                  <input type="checkbox" id="posF" value={player.posF} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posF}/>
               </div>
         </fieldset>
         <fieldset>
               <div className="form_group">
               <label>Defense:</label>
-                  <input type="checkbox" id="posD" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posD}/>
+                  <input type="checkbox" id="posD" value={player.posD} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posD}/>
               </div>
         </fieldset>        
         <fieldset>
               <div className="form_group">
               <label>Goaltender:</label>
-                  <input type="checkbox" id="posF" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posG}/>
+                  <input type="checkbox" id="posF" value={player.posG} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posG}/>
               </div>
         </fieldset>
+        </Card>
+        </>
 
-        {(parseInt(player.id) === player.id) && <>
+        {(parseInt(player.id) === player.id) && 
+        <>
+        <Card background="#041e42" width="medium" align="center" alignSelf="center">
         <fieldset>
               <div className="form_group">
               <label>Goals:</label>
@@ -140,13 +148,19 @@ export const PlayerForm = () => {
               <label>Penalty Minutes:</label>
                   <input type="text" id="penalty" onChange={handleControlledInputChange} className="form_control" placeholder="Penalty Minutes" defaultValue={player.penalty}/>
               </div>
-          </fieldset> </> }
-        <Button className="form_save"
+          </fieldset>
+          </Card> 
+          </>
+          }
+
+        <>
+        <fieldset><Button color="#042e41" label={playerId ? <>Save Changes</> : <>Save New</>} className="form_save"
           onClick={event => {
             event.preventDefault()
             handleSavePlayer()
-          }}>
-        {playerId ? <>Save Changes</> : <>Save New</>} </Button>
-      </Form>
+          }} />
+        </fieldset>
+        </>
+      </div>
     )
 }

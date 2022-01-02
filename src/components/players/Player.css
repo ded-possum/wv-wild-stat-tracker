@@ -1,3 +1,17 @@
+body {
+    color: #FFFFFF;
+}
+
+   fieldset {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+    padding: 1rem 0;
+    margin: 0;
+    border: 0;
+   }
+
+
 .players {
     display: flex;
     flex-flow: wrap;
@@ -10,6 +24,11 @@
     padding: 1em;
 
 
+}
+
+.player_form {
+display: flex;
+flex-direction: column;
 }
 
 .player__content {
