@@ -16,15 +16,15 @@ export const GameCard = ({game}) => {
       
    return (
 <section className="game">
-    <Card width="small">
+    <Card background="#ffb810" align="center" width="medium">
     <div className="game__opponent">{game.opponent}</div>
     <div className="game__date">{game.date}</div>
     <div className="game__location">{game.location}</div>
-        <div><label>Game Played: </label>
-    <input className="taskComplete" type ="checkbox" defaultValue="false" onChange={handleCheckbox}/></div>
-    <Button color="#041e42" label="EDIT" alignSelf="start" onClick={() => {
+        <div><label className="game__played">Game Played: </label>
+    <input className="game__played" type ="checkbox" defaultValue="false" onChange={handleCheckbox}/></div>
+    <Button color="#041e42" label="EDIT" alignSelf="center" onClick={() => {
               navigate(`/games/edit/${game.id}`)
-            }} />
+            }} primary />
 </Card>
     </section>
    )

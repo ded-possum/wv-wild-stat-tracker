@@ -1,3 +1,6 @@
+body {
+    color: #FFFFFF;
+}
 
    fieldset {
     display: flex;
@@ -21,6 +24,11 @@
     padding: 1em;
 
 
+}
+
+.player_form {
+display: flex;
+flex-direction: column;
 }
 
 .player__content {

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { PlayerContext } from "./PlayerProvider"
 import "./Player.css"
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Form, FormField, Layer } from "grommet";
+import { Box, Button, Card, Form, FormField, Layer } from "grommet";
 
 export const PlayerForm = () => {
     const { getPlayers, postPlayer, getPlayerById, updatePlayer } = useContext(PlayerContext)
@@ -75,18 +75,23 @@ export const PlayerForm = () => {
         )
     }, [])
 
+
+    
     return (
   
       <div className="player_form">
 
-
+        <>
+        <Card  background="#041e42" width="medium" align="center" alignSelf="center">
         <fieldset>
               <div className="form_group">
+              <label>Name:</label>
                   <input type="text" id="name" onChange={handleControlledInputChange} className="form_control" placeholder="Player's Name" defaultValue={player.name}/>
               </div>
         </fieldset>
         <fieldset>
               <div className="form_group">
+              <label>#:</label>
                   <input type="text" id="number" onChange={handleControlledInputChange} className="form_control" placeholder="Player's Number" defaultValue={player.number}/>
               </div>
         </fieldset>
@@ -108,9 +113,12 @@ export const PlayerForm = () => {
                   <input type="checkbox" id="posF" value={player.posG} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posG}/>
               </div>
         </fieldset>
+        </Card>
+        </>
 
-        {/* {(parseInt(player.id) === player.id) &&  */}
+        {(parseInt(player.id) === player.id) && 
         <>
+        <Card background="#041e42" width="medium" align="center" alignSelf="center">
         <fieldset>
               <div className="form_group">
               <label>Goals:</label>
@@ -140,15 +148,19 @@ export const PlayerForm = () => {
               <label>Penalty Minutes:</label>
                   <input type="text" id="penalty" onChange={handleControlledInputChange} className="form_control" placeholder="Penalty Minutes" defaultValue={player.penalty}/>
               </div>
-          </fieldset> </>
-          {/* } */}
-        <fieldset><Button className="form_save"
+          </fieldset>
+          </Card> 
+          </>
+          }
+
+        <>
+        <fieldset><Button color="#042e41" label={playerId ? <>Save Changes</> : <>Save New</>} className="form_save"
           onClick={event => {
             event.preventDefault()
             handleSavePlayer()
-          }}>
-        {playerId ? <>Save Changes</> : <>Save New</>} </Button>
+          }} />
         </fieldset>
+        </>
       </div>
     )
 }

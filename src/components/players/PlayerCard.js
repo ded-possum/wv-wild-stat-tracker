@@ -34,7 +34,7 @@ export const PlayerCard = ({player}) => {
     return (
         <div className="player">
       <Box>
-        <Button color="#ffb81c" label={ player.name } onClick={() => setShow(true)} />
+        <Button color="#ffb81c" label={ player.name } onClick={() => setShow(true)} primary />
         {show && (
           <Layer 
             onEsc={() => setShow(false)}
