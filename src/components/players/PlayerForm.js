@@ -21,12 +21,10 @@ export const PlayerForm = () => {
     }
 
     const handleSavePlayer = () => {
-      if (parseInt(player.id) === 0) {
-          window.alert("")
-      } else {
+
         setIsLoading(true);
         if (playerId){
-          //PUT - update
+
           updatePlayer({
               id: parseInt(player.id),
               name: player.name,
@@ -45,20 +43,21 @@ export const PlayerForm = () => {
         } else {
           //POST - add
           postPlayer({
+              id: player.id,
             name: player.name,
             number: +player.number,
-            img: player.img,
-            posF: JSON.parse(player.posF),
-            posD: JSON.parse(player.posD),
-            posG: JSON.parse(player.posG),
+            img: "/images/wvwildjersey_ht100px.png",
+            posF: false || true,
+            posD: false || true,
+            posG: false || true,
             goal: +player.goal,
-            assist: +player.assist,
-            save: +player.save,
-            against: +player.against,
-            penalty: +player.penalty
+              assist: +player.assist,
+              save: +player.save,
+              against: +player.against,
+              penalty: +player.penalty
         })
+        .then(() => navigate(`/players/${player.id}`))
         }
-      }
     }
 
     useEffect(() => {
@@ -78,7 +77,7 @@ export const PlayerForm = () => {
 
     return (
   
-      <Form className="player_form">
+      <div className="player_form">
 
 
         <fieldset>
@@ -94,23 +93,24 @@ export const PlayerForm = () => {
         <fieldset>
               <div className="form_group">
               <label>Forward:</label>
-                  <input type="checkbox" id="posF" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posF}/>
+                  <input type="checkbox" id="posF" value={player.posF} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posF}/>
               </div>
         </fieldset>
         <fieldset>
               <div className="form_group">
               <label>Defense:</label>
-                  <input type="checkbox" id="posD" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posD}/>
+                  <input type="checkbox" id="posD" value={player.posD} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posD}/>
               </div>
         </fieldset>        
         <fieldset>
               <div className="form_group">
               <label>Goaltender:</label>
-                  <input type="checkbox" id="posF" onChange={handleControlledInputChange} className="form_control" defaultValue={player.posG}/>
+                  <input type="checkbox" id="posF" value={player.posG} onChange={handleControlledInputChange} className="form_control" defaultValue={player.posG}/>
               </div>
         </fieldset>
 
-        {(parseInt(player.id) === player.id) && <>
+        {/* {(parseInt(player.id) === player.id) &&  */}
+        <>
         <fieldset>
               <div className="form_group">
               <label>Goals:</label>
@@ -140,13 +140,15 @@ export const PlayerForm = () => {
               <label>Penalty Minutes:</label>
                   <input type="text" id="penalty" onChange={handleControlledInputChange} className="form_control" placeholder="Penalty Minutes" defaultValue={player.penalty}/>
               </div>
-          </fieldset> </> }
-        <Button className="form_save"
+          </fieldset> </>
+          {/* } */}
+        <fieldset><Button className="form_save"
           onClick={event => {
             event.preventDefault()
             handleSavePlayer()
           }}>
         {playerId ? <>Save Changes</> : <>Save New</>} </Button>
-      </Form>
+        </fieldset>
+      </div>
     )
 }

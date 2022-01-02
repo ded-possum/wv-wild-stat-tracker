@@ -31,5 +31,4 @@ export const PlayerList = () => {
         </div>
         </>
     )
-
 }

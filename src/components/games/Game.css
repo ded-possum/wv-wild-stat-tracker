@@ -1,0 +1,8 @@
+.game {
+    flex-basis: 10%;
+    margin: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: wrap;
+    justify-content: center;
+}
