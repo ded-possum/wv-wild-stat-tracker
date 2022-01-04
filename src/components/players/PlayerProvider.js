@@ -45,6 +45,7 @@ export const PlayerProvider = (props) => {
             .then(getPlayers)
     }
 
+
     return (
         <PlayerContext.Provider value={
             {players, getPlayers, postPlayer, getPlayerById, updatePlayer, deletePlayer}

@@ -1,0 +1,11 @@
+.stat {
+    display: flex;
+    margin: 1em;
+
+}
+
+.player_select {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
