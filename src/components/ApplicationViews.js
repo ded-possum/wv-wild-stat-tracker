@@ -8,11 +8,14 @@ import { PlayerProvider } from "./players/PlayerProvider";
 import { PlayerForm } from "./players/PlayerForm";
 import { GameList } from "./games/GameList";
 import { GameProvider } from "./games/GameProvider";
+import { StatProvider } from "./stats/StatProvider";
+import { StatList } from "./stats/StatList";
 
 
 export const ApplicationViews = () => {
 
     return (
+<StatProvider>
 <GameProvider>
 <PlayerProvider>
         <Routes>
@@ -23,7 +26,9 @@ export const ApplicationViews = () => {
             <Route path="/players/edit/:playerId/*" element={<PlayerForm />} />
             <Route path="/players/edit/create/" element={<PlayerForm />} />
             <Route path="/games/*" element={<GameList />} />
+            <Route path="/stats/*" element={<StatList />} />
         </Routes>
 </PlayerProvider>
 </GameProvider>
+</StatProvider>
     )}

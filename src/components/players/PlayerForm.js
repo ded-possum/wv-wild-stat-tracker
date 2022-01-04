@@ -16,9 +16,12 @@ export const PlayerForm = () => {
     const handleControlledInputChange = (event) => {
       
       const newPlayer = { ...player }
-      newPlayer[event.target.id] = event.target.value
+      newPlayer[event.target.id] = event.target.checked ? event.target.checked : event.target.value
+
       setPlayer(newPlayer)
     }
+
+ 
 
     const handleSavePlayer = () => {
 
@@ -30,9 +33,9 @@ export const PlayerForm = () => {
               name: player.name,
               number: +player.number,
               img: player.img,
-              posF: JSON.parse(player.posF),
-              posD: JSON.parse(player.posD),
-              posG: JSON.parse(player.posG),
+              posF: player.posF,
+              posD: player.posD,
+              posG: player.posG,
               goal: +player.goal,
               assist: +player.assist,
               save: +player.save,
@@ -47,9 +50,9 @@ export const PlayerForm = () => {
             name: player.name,
             number: +player.number,
             img: "/images/wvwildjersey_ht100px.png",
-            posF: false || true,
-            posD: false || true,
-            posG: false || true,
+            posF: player.posF,
+            posD: player.posD,
+            posG: player.posG,
             goal: +player.goal,
               assist: +player.assist,
               save: +player.save,
