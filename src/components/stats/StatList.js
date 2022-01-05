@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import "./Stat.css"
 import { useNavigate, useParams } from "react-router-dom"
 import { PlayerContext } from "../players/PlayerProvider"
-import { Meter, Select } from "grommet"
+import { Box, Meter, Select, Stack, Text } from "grommet"
 
 export const StatList = ({player}) => {
 
@@ -43,27 +43,66 @@ return (
         </select>
     </div>
     <div className="stat">
-        <div className="stat__goal">Goals: {players[selectedPlayer].goal}</div>
+        <Box align="center" pad="large">
+            <Text color="#ffb81c" size="large" weight="bold">GOALS</Text>
+            <Text color="#ffb81c" size="large">Team Total: {totalsFor("goal")}</Text>
+        <Stack anchor="center">
         <Meter
         type="circle" margin="medium" color="#ffb81c" max={totalsFor("goal")} size="small" thickness="large" value={players[selectedPlayer].goal}
         />
+        <Box align="center">
+            <Box direction="row" align="center">
+                <Text color="#ffb81c" size="large" weight="bold">{players[selectedPlayer].goal}</Text>
+            </Box>
+        </Box>
+        </Stack>
+        </Box>
 
-
-        <div className="stat__assist">Assists: {players[selectedPlayer].assist}</div>
+        <Box align="center" pad="large">
+        <Text color="#ffb81c" size="large" weight="bold">ASSISTS</Text>
+        <Text color="#ffb81c" size="large">Team Total: {totalsFor("assist")}</Text>
+        <Stack anchor="center">
         <Meter
         type="circle" margin="medium" color="#ffb81c" max={totalsFor("assist")} size="small" thickness="large" value={players[selectedPlayer].assist}
         />
+        <Box align="center">
+            <Box direction="row" align="center">
+                <Text color="#ffb81c" size="large" weight="bold">{players[selectedPlayer].assist}</Text>
+            </Box>
+        </Box>
+        </Stack>
+        </Box>
 
 
-        <div className="stat__save">Saves: {players[selectedPlayer].save}</div>
+        <Box align="center" pad="large">
+        <Text color="#ffb81c" size="large" weight="bold">SAVES</Text>
+        <Text color="#ffb81c" size="large">Team Total: {totalsFor("save")}</Text>
+        <Stack anchor="center">
         <Meter
-       type="circle" margin="medium" color="#ffb81c" max={totalsFor("save")} size="small" thickness="large" value={players[selectedPlayer].save}
+        type="circle" margin="medium" color="#ffb81c" max={totalsFor("save")} size="small" thickness="large" value={players[selectedPlayer].save}
         />
+        <Box align="center">
+            <Box direction="row" align="center">
+                <Text color="#ffb81c" size="large" weight="bold">{players[selectedPlayer].save}</Text>
+            </Box>
+        </Box>
+        </Stack>
+        </Box>
 
-        <div className="stat__penalties">Penalty Minutes: {players[selectedPlayer].penalty}</div>
+        <Box align="center" pad="large">
+        <Text color="#ffb81c" size="large" weight="bold">PENALTY MINUTES</Text>
+        <Text color="#ffb81c" size="large">Team Total: {totalsFor("penalty")}</Text>
+        <Stack anchor="center">
         <Meter
-type="circle" margin="medium" color="#ffb81c" max={totalsFor("penalty")} size="small" thickness="large" value={players[selectedPlayer].penalty}
+        type="circle" margin="medium" color="#ffb81c" max={totalsFor("penalty")} size="small" thickness="large" value={players[selectedPlayer].penalty}
         />
+        <Box align="center">
+            <Box direction="row" align="center">
+                <Text color="#ffb81c" size="large" weight="bold">{players[selectedPlayer].penalty}</Text>
+            </Box>
+        </Box>
+        </Stack>
+        </Box>
     </div>
     </>
     }

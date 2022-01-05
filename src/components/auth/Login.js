@@ -51,7 +51,9 @@ export const Login = (props) => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button type="submit" onClick={() => {
+              navigate(`/`)
+            }}>
                             Sign in
                         </button>
                     </fieldset>

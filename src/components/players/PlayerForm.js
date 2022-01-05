@@ -165,5 +165,4 @@ export const PlayerForm = () => {
         </fieldset>
         </>
       </div>
-    )
-}
+    )}

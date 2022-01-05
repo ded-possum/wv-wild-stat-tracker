@@ -40,7 +40,7 @@ export const GameForm = () => {
             opponent: game.opponent,
             date: game.date,
             location: game.location,
-            played: game.played
+            played: false
           })
         .then(() => navigate(`/games/${game.id}`))
         }
@@ -81,12 +81,12 @@ export const GameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form_group">
-                <label>Game Played:</label>
                     <input type="text" id="location" onChange={handleControlledInputChange} className="form_control" placeholder="Location" defaultValue={game.location}/>
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form_group">
+                <label>Game Played:</label>
                     <input type="checkbox" id="played" value={game.played} onChange={handleControlledInputChange} className="form_control" placeholder="Opponent" defaultValue={game.opponent}></input>
                 </div>
             </fieldset>
