@@ -25,7 +25,7 @@ export const GameList = () => {
     <>
         <h2 className="intro">Schedule</h2>
         <div className="intro">
-        {/* <Button color="#041e42" label="ADD GAME" onClick={() => navigate("/games/edit/create")} /> */}
+        <Button color="#ffb81c" label="ADD GAME" onClick={() => navigate("/games/edit/create")} primary />
         </div>
         <div className="game">
             {
