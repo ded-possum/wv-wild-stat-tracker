@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import "./Player.css"
-import { Button, Layer, Box } from "grommet"
+import { Button, Layer, Box, Card } from "grommet"
 import { useNavigate } from "react-router-dom";
 import { PlayerContext } from "./PlayerProvider";
 
@@ -39,7 +39,7 @@ export const PlayerCard = ({player}) => {
           <Layer 
             onEsc={() => setShow(false)}
             onClickOutside={() => setShow(false)}>
-        <div className="player__content">
+        <Card className="player__content">
 
         <img className="player__img" src={ player.img } alt="WV Wild"></img>
 
@@ -62,7 +62,7 @@ export const PlayerCard = ({player}) => {
 
         <div className="player__penalties">Penalty Minutes: { player.penalty }</div>
         </div>
-        </div>
+        </Card>
 
             <Button color="#041e42" label="EDIT" onClick={() => {
               navigate(`/players/edit/${player.id}`)
