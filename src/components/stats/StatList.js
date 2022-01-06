@@ -10,6 +10,8 @@ export const StatList = ({player}) => {
     const {players, getPlayers} = useContext(PlayerContext)
     const [selectedPlayer, setSelectedPlayer] = useState(0)
 
+
+    //This function returns the player totals for the designated statistic
     const totalsFor = (prop) => {
         let sum = 0
         for(let i = 0; i < players.length; i++){
@@ -23,7 +25,7 @@ export const StatList = ({player}) => {
         getPlayers()
     }, [])
 
-
+    //This function gives the statistics of the player selected in the dropdown
     const PlayerSelect = (event) => {
         const playerId = (+event.target.value - 1)
         setSelectedPlayer(playerId)
