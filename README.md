@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# WV Wild Stat Tracker
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+When I coached youth hockey in Charleston, my players loved keeping track of their goals, assists, saves, and other stats. I kept a notebook for my team, but I always wished there would be a more comprehensive application to track team stats for the organization. This app is a proposed solution to that desire, and would provide a place for coaches to input game stats for individual players and teams, and for parents and players to view their stats.
+
+## Components:
+
+This app features a simplified authorization, a Players component listing all players and relevant stats (with full CRUD capability), a Stats component allowing a user to compare the individual statistics of each player against the overall performance of the team, and a Games component providing schedule cards for each scheduled game, divided into Games Yet to be Played and Games Played (with full CRUD). 
 
 ## Available Scripts
 
