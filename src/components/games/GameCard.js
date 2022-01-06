@@ -20,8 +20,6 @@ export const GameCard = ({game}) => {
     <Text className="game__opponent">{game.opponent}</Text>
     <Text className="game__date">{game.date}</Text>
     <Text className="game__location">{game.location}</Text>
-    {/* <div><label className="game__played">Game Played: </label>
-    <input className="game__played" type ="checkbox" defaultValue="false" onChange={handleCheckbox}/></div> */}
     <Button color="#041e42" label="EDIT" alignSelf="center" size="small" onClick={() => {
               navigate(`/games/edit/${game.id}`)
             }} primary />

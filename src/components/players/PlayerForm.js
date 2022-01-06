@@ -21,13 +21,11 @@ export const PlayerForm = () => {
       setPlayer(newPlayer)
     }
 
- 
-
-    const handleSavePlayer = () => {
+     const handleSavePlayer = () => {
 
         setIsLoading(true);
         if (playerId){
-
+          //Updates exisitng player information
           updatePlayer({
               id: parseInt(player.id),
               name: player.name,
@@ -44,7 +42,7 @@ export const PlayerForm = () => {
             })
           .then(() => navigate(`/players/${player.id}`))
         } else {
-          //POST - add
+          //Adds a new player to the list
           postPlayer({
               id: player.id,
             name: player.name,
@@ -62,7 +60,7 @@ export const PlayerForm = () => {
         .then(() => navigate(`/players/${player.id}`))
         }
     }
-
+    //Identifies the existing player/new player for the appropriate form/page
     useEffect(() => {
         getPlayers().then(() => {
            if (playerId){
@@ -118,7 +116,7 @@ export const PlayerForm = () => {
         </fieldset>
         </Card>
         </>
-
+        {/* Conditonally rendered statistic inputs only appear for existing players, not new players */}
         {(parseInt(player.id) === player.id) && 
         <>
         <Card background="#041e42" width="medium" align="center" alignSelf="center">

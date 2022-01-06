@@ -1,14 +1,14 @@
 import React, { useState, createContext } from "react";
 
-export const GameContext = createContext();
+export const GameContext = createContext()
 
 export const GameProvider = (props) => {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState([])
 
   const getGames = () => {
     return fetch("http://localhost:8088/games")
     .then(res => res.json())
-    .then(setGames);
+    .then(setGames)
   }
 
   const addGame = gameObj => {
@@ -47,9 +47,6 @@ const updateGame = game => {
     }).then(getGames)
 } 
 
-  
-
- 
   return (
     <GameContext.Provider value={{
       games, getGames, addGame, playedGame, getGameById, updateGame

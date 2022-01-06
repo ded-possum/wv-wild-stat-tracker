@@ -9,7 +9,6 @@ export const PlayerList = () => {
 
     const {players, getPlayers} = useContext(PlayerContext)
    
-    
     const navigate = useNavigate()
 
     useEffect(() => {

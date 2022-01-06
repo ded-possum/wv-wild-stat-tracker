@@ -17,7 +17,7 @@ export const PlayerCard = ({player}) => {
     const [show, setShow] = useState();
 
     let position = ""
-    
+    // Assigns the selected position for each player based on booleans
       if (player.posF === true) {
         position = "Forward"
       }
@@ -33,6 +33,7 @@ export const PlayerCard = ({player}) => {
 
     return (
         <div className="player">
+          {/* This box will build a modal to show each player card when their name is clicked */}
       <Box>
         <Button color="#ffb81c" label={ player.name } onClick={() => setShow(true)} primary />
         {show && (
