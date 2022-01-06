@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import { Nav, Anchor, Button, Image } from "grommet"
+
+import { Nav, Button, Image } from "grommet"
 import { Sort, Analytics, Logout, Compliance, Home, Schedule } from "grommet-icons"
 import "./NavBar.css"
 

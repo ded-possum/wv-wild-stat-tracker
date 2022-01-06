@@ -12,7 +12,6 @@ import { GameProvider } from "./games/GameProvider";
 import { StatProvider } from "./stats/StatProvider";
 import { StatList } from "./stats/StatList";
 
-
 export const ApplicationViews = () => {
 
     return (

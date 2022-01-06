@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 import "./Stat.css"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { PlayerContext } from "../players/PlayerProvider"
-import { Box, Meter, Select, Stack, Text } from "grommet"
+import { Box, Meter, Stack, Text } from "grommet"
 
 export const StatList = ({player}) => {
 
@@ -72,7 +72,6 @@ return (
         </Box>
         </Stack>
         </Box>
-
 
         <Box align="center" pad="large">
         <Text color="#ffb81c" size="large" weight="bold">SAVES</Text>

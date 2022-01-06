@@ -5,7 +5,6 @@ import { Tracker } from './components/Tracker';
 import './index.css';
 import { Grommet } from 'grommet';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Grommet>

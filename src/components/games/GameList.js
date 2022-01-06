@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { GameContext } from "./GameProvider"
 import { GameCard } from "./GameCard"
@@ -9,11 +9,10 @@ let filterGames = {
   NotPlayed: game => !game.played,
   Played: game => game.played
 };
-// const filterGameStatus = Object.keys(filterGames);
 
 export const GameList = () => {
   const { games, getGames } = useContext(GameContext)
-//   const [filter, setFilter] = useState('Incomplete');
+
 
   const navigate = useNavigate()
 
@@ -23,6 +22,7 @@ export const GameList = () => {
 
   return (
     <>
+      <Card>
         <h2 className="intro">Schedule</h2>
         <div className="intro">
         <Button color="#ffb81c" label="ADD GAME" onClick={() => navigate("/games/edit/create")} primary />
@@ -33,6 +33,8 @@ export const GameList = () => {
                    <GameCard key={game.id} game={game} />)
             }
         </div>
+        </Card>
+        <Card>
         <h2 className="intro">Games Played</h2>
         <div className="game">
             {
@@ -40,6 +42,7 @@ export const GameList = () => {
                    <GameCard key={game.id} game={game} />)
             }
         </div>
+        </Card>
     </>
   )
 }

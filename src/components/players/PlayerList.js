@@ -4,7 +4,6 @@ import { PlayerContext } from "./PlayerProvider";
 import { PlayerCard } from "./PlayerCard";
 import "./Player.css"
 import { Button } from "grommet";
-import { unstable_concurrentAct } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 export const PlayerList = () => {
 
