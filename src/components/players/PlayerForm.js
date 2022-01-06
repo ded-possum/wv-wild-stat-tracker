@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { PlayerContext } from "./PlayerProvider"
 import "./Player.css"
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Card, Form, FormField, Layer } from "grommet";
+import { Button, Card } from "grommet";
 
 export const PlayerForm = () => {
     const { getPlayers, postPlayer, getPlayerById, updatePlayer } = useContext(PlayerContext)

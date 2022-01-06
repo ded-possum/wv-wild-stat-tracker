@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { GameContext } from "./GameProvider"
 import "./Game.css"
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Card, Form, FormField, Layer } from "grommet";
+import { Button, Card } from "grommet";
 
 export const GameForm = () => {
     const { getGames, addGame, getGameById, updateGame } = useContext(GameContext)
@@ -65,10 +65,9 @@ export const GameForm = () => {
     
     return (
 
-        <div className="game_form">
+        <Card className="game_form">
 
             <>
-            <Card>
             <fieldset>
                 <div className="form_group">
                     <input type="text" id="opponent" onChange={handleControlledInputChange} className="form_control" placeholder="Opponent" defaultValue={game.opponent}></input>
@@ -90,7 +89,6 @@ export const GameForm = () => {
                     <input type="checkbox" id="played" value={game.played} onChange={handleControlledInputChange} className="form_control" placeholder="Opponent" defaultValue={game.opponent}></input>
                 </div>
             </fieldset>
-            </Card>
             </>
             <>
             <fieldset><Button color="#ffb81c" label={gameId ? <>Save Changes</> : <>Save New</>} className="form_save"
@@ -100,5 +98,5 @@ export const GameForm = () => {
             }} primary />
         </fieldset>
         </>
-        </div>
+        </Card>
     )}
