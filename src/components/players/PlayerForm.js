@@ -25,7 +25,7 @@ export const PlayerForm = () => {
 
         setIsLoading(true);
         if (playerId){
-          //Updates exisitng player information
+          //Updates existing player information
           updatePlayer({
               id: parseInt(player.id),
               name: player.name,
@@ -76,8 +76,6 @@ export const PlayerForm = () => {
         )
     }, [])
 
-
-    
     return (
   
       <div className="player_form">

@@ -6,7 +6,7 @@ import "./Login.css"
 
 export const Login = (props) => {
     const email = useRef()
-    const password = useRef()
+    // const password = useRef()
     const existDialog = useRef()
     const navigate = useNavigate()
 
@@ -22,7 +22,7 @@ export const Login = (props) => {
         existingCoachCheck()
             .then(exists => {
                 if (exists) {
-                    localStorage.setItem("wild_coach", JSON.stringify(exists))
+                    localStorage.setItem("wild_coach", exists.id, JSON.stringify(exists))
                     props.setLoggedin(true)
                     navigate("/")
                 } else {

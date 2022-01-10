@@ -1,7 +1,7 @@
 import React from "react";
 import { PropsAndState } from "./PropsAndState";
 import "./Home.css"
-import { Image, Card } from "grommet";
+
 
 
 export const Home = () => (

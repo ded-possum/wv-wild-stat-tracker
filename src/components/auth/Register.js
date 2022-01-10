@@ -5,24 +5,24 @@ import "./Login.css"
 export const Register = (props) => {
     const name = useRef()
     const email = useRef()
-    const verifyPassword = useRef()
+    // const verifyPassword = useRef()
     const conflictDialog = useRef()
     const navigate = useNavigate()
 
-    const existingUserCheck = () => {
+    const existingCoachCheck = () => {
         return fetch(`http://localhost:8088/coaches?email=${email.current.value}`)
             .then(res => res.json())
-            .then(user => !!user.length)
+            .then(coach => !!coach.length)
     }
 
     const handleRegister = (e) => {
         e.preventDefault()
 
 
-        existingUserCheck()
-            .then((userExists) => {
-                if (!userExists) {
-                    fetch("http://localhost:8088/users", {
+        existingCoachCheck()
+            .then((coachExists) => {
+                if (!coachExists) {
+                    fetch("http://localhost:8088/coaches", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -33,10 +33,10 @@ export const Register = (props) => {
                         })
                     })
                         .then(res => res.json())
-                        .then(createdUser => {
-                            if (createdUser.hasOwnProperty("id")) {
+                        .then(createdCoach => {
+                            if (createdCoach.hasOwnProperty("id")) {
 
-                                localStorage.setItem("wild_user", JSON.stringify(createdUser))
+                                localStorage.setItem("wild_coach", JSON.stringify(createdCoach))
                                 props.setLoggedin(true)
                                 navigate("/")
                             }

@@ -10,7 +10,6 @@ export const StatList = ({player}) => {
     const {players, getPlayers} = useContext(PlayerContext)
     const [selectedPlayer, setSelectedPlayer] = useState(0)
 
-
     //This function returns the player totals for the designated statistic
     const totalsFor = (prop) => {
         let sum = 0
